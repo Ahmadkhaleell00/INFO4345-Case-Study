@@ -20,42 +20,45 @@
 | Low-Risk/Informational Issues | 8      |
 | Remediation Status            | Pending |
 
-Medium-Risk Issues – Explained in Detail
-Missing Content Security Policy (CSP) Header
+
+- Medium-Risk Issues 
+1- Missing Content Security Policy (CSP) Header
 A CSP header helps protect users from attacks such as cross-site scripting (XSS). Without this header, browsers do not restrict where scripts or other resources load from. This makes it easier for attackers to inject malicious JavaScript into the page and compromise users.
 
-Missing Anti-Clickjacking Header
+2- Missing Anti-Clickjacking Header
 Clickjacking occurs when a site is loaded within a hidden frame on a malicious website. Without the X-Frame-Options or CSP frame-ancestors directive, an attacker can trick users into clicking something they didn’t intend, potentially changing settings or submitting forms on iREP.
 
-Weak Authentication Method
+3- Weak Authentication Method
 The login form does not use strong protection mechanisms such as two-factor authentication (2FA), CAPTCHA, or rate limiting. This allows brute-force attacks, where attackers repeatedly guess login credentials until they succeed.
 
-Absence of Anti-CSRF Tokens
+4- Absence of Anti-CSRF Tokens
 Forms on the site do not include CSRF tokens. These tokens ensure that requests come from real users and not from external malicious sites. Without CSRF protection, attackers can trick logged-in users into performing unintended actions, such as submitting forms or changing account data.
 
-🔹 Low-Risk & Informational Issues
-Server Leaks Version Information
+
+
+ - Low-Risk & Informational Issues
+1- Server Leaks Version Information
 The HTTP response headers (like “Server” or “X-Powered-By”) reveal the software and version used. This gives attackers useful information to target known vulnerabilities in those versions.
 
-X-Content-Type-Options Header Missing
+2= X-Content-Type-Options Header Missing
 Without this header (X-Content-Type-Options: nosniff), some browsers may try to guess the type of a file. This behavior can be abused to execute unexpected or harmful content.
 
-Cross-Domain JavaScript Source File Inclusion
+3- Cross-Domain JavaScript Source File Inclusion
 JavaScript files are loaded from external sources (e.g., CDNs). If those sources are compromised, attackers can inject malicious code that runs on your website.
 
-Timestamp Disclosure (Unix)
+4- Timestamp Disclosure (Unix)
 Some pages show Unix timestamps, which may give attackers clues about server structure, response timing, or development cycles. While not dangerous alone, it helps in more advanced attacks.
 
-Big Redirect Detected (Sensitive Info Leak)
+5- Big Redirect Detected (Sensitive Info Leak)
 A very long redirect URL with many query parameters can expose search data, user input, or other private fields. This could be exploited in phishing or logging attacks.
 
-Suspicious Comments in HTML Source Code
+6- Suspicious Comments in HTML Source Code
 Some HTML pages contain developer comments like <!-- TODO: remove before production -->. These might reveal logic, passwords, or hidden functions that attackers could use.
 
-Modern Web Application Detected
+7- Modern Web Application Detected
 This indicates the site uses modern frameworks like Angular, Vue, or React. This is informational but means additional security practices are needed for frontend apps.
 
-User-Controllable HTML Attribute (Potential XSS)
+8- User-Controllable HTML Attribute (Potential XSS)
 Some form inputs or URL parameters are reflected in the page without proper sanitization. If attackers insert HTML or JavaScript in these inputs, it could lead to XSS.
 
 
